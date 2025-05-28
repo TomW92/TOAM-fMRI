@@ -1,0 +1,145 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% LaPreprint: PREPRINT TEMPLATE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% PREAMBLE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Declare document class
+\documentclass[9pt]{lapreprint}
+% Choose between "biorxiv", "medrxiv", "arxiv" and "chemrxiv". Otherwise defaults "Preprint".
+% Choose between "blue" and "red" colour scheme. Defaults to "blue".
+% Use the "onehalfspacing" option for 1.5 line spacing.
+% Use the "doublespacing" option for 2.0 line spacing.
+% Use the "lineno" option for line numbers.
+% Use the "endfloat" option to place floats (images etc) after the bibliography.
+
+% Import packages
+\usepackage{lipsum}     % Required to insert dummy text
+%\usepackage[version=4]{mhchem} % For chemical notation
+\usepackage{siunitx}    % For SI units
+\usepackage{pdflscape}  % For putting pages in landscape mode
+%\usepackage{rotating}   % For rotating specific elements
+\usepackage{textgreek}  % Greek symbols
+\usepackage{gensymb}    % Symbols
+\usepackage[misc]{ifsym} % For the \Letter symbol
+\usepackage{orcidlink}  % For the \orcidlink
+\usepackage{listings}   % For inserting code chunks
+\usepackage{colortbl}   % For Knitr table colouring
+\usepackage{tabularx}   % For making Knitr tables compatible
+\usepackage{longtable}  % For multi-page tables
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{subscript}
+\usepackage{multirow}
+\usepackage{snotez}     % For sidenote environments. enotez for endnotes
+\usepackage{csquotes}   % For language-based quote rules (helps BiBLaTeX)
+\usepackage{textcomp}
+\usepackage{todonotes}
+\usepackage{booktabs}
+%\usepackage{unicode-math}
+\usepackage{siunitx}
+\usepackage{longtable} % for 'longtable' environment
+
+\usepackage{pifont}
+\usepackage{placeins}
+\DeclareRobustCommand{\textbigstar}{\mbox{\ding{72}}}
+
+% for supplement
+\renewcommand{\thetable}{S\arabic{table}}
+
+% Make declarations
+\DeclareSIUnit\Molar{M}
+
+% Please note that these options may affect formatting. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% BIBLIOGRAPHYan
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[			% use biblatex for bibliography
+	backend=biber,      % use biber or bibtex backend
+    style=numeric, %authoryear,   % choose style
+	natbib=true,		% allow natbib commands
+	hyperref=true,	    % activate hyperref support
+	alldates=year,      % only show year (not month)
+]{biblatex}
+
+% Update to your bibliography file
+\addbibresource{src/TOAM.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% ARTICLE SETUP
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Paper title
+%\title{Silent Memories: \\ Trajectory of memory traces}
+%\title{Forgotten memories can be reactivated and influence behaviour outside of conscious access}
+%\title{Forgotten memories can be reactivated and influence behaviour unconsciously}
+
+%TC:ignore
+\title{}
+\title{
+  Supplemental Information \\
+  \vspace{1em}
+  \large Neural Traces of Forgotten Memories Persist in Humans and are Behaviorally Relevant}
+
+
+% Authors - you can use \orcidlink{} and \authfn{} - see contribution note
+
+\author[]{Tom Willems, Konstantinos Zervas, Finn Rabe, Andrea Federspiel, Katharina Henke}
+
+
+% Affiliations
+%\affil[1]{Institute of Psychology, University of Bern}
+%\affil[2]{Support Center for Advanced Neuroimaging, Translational Imaging Center (sitem-insel), Institute for Diagnostic and Interventional Neuroradiology, Inselspital – University of Bern}
+% Other metadata. Feel free to add your own
+\metadata[]{\Letter\hspace{.5ex} For correspondence}{\url{https://github.com/TomW92/TOAM/issues}}
+%\metadata[\authfn{1}\authfn{2}\authfn{3}]{}{Here's a few symbols to denote contribution specifics, e.g. authors who contributed equally to the work.}
+\metadata[]{Present address}{Cognitive Neuroscience of Memory and Consciousness, Institute of Psychology, University of Bern, Fabrikstrasse 8, 3012, Bern}
+\metadata[]{Data availability}{Code available via GitHub, see above, preprocessed data is available via the UniBern Server, external access can be granted by the corresponding author.}%, otherwise see \href{https://zenodo.org/}{Zenodo}.}
+\metadata[]{Funding}{This research was supported by SNSF Advanced Grant TMAG-1\_209374 to K. Henke and by the University of Bern Sitem-Insel-Support Grant to K. Henke.}
+\metadata[]{Competing interests}{The authors declare no competing interests.}
+
+
+% Surname of the lead author(s) for the running footer
+\leadauthor{}
+\shorttitle{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% ARTICLE START
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\maketitle
+\fussy
+
+\newpage
+\input{paper/src/supplementary_figures.tex}
+\newpage
+\input{paper/src/supplementary_tables.tex}
+
+% DON'T EDIT. If "endfloat" option is enabled all floats appear before appendices
+\if@endfloat\clearpage\processdelayedfloats\clearpage\fi 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUPPLEMENTARY MATERIAL / APPENDICES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Sadly, we can't use floats in the appendix boxes. So they don't "float", but use \captionof{figure}{...} and \captionof{table}{...} to get them properly caption.
+%\begin{appendix}
+%    \begin{appendixbox}
+%        \input{paper/src/supplementary/methods.tex}
+%    \end{appendixbox}
+    
+%    \clearpage
+%    \input{paper/src/supplementary/supplementary_figures.tex}
+
+%    \clearpage    
+%    \input{paper/src/supplementary/appendix_tables.tex}
+    
+%\end{appendix}
+%TC:endignore
+
+\end{document}

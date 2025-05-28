@@ -1,0 +1,23 @@
+%----- Requires booktabs package -----%
+\begin{table}[ht]
+	
+	\label{tab:aNCOVA-Mean_acc_bysub}
+	{
+		\begin{tabular}{lrrrrr}
+			\toprule
+			Cases & Sum of Squares & df & Mean Square & F & p  \\
+			\cmidrule[0.4pt]{1-6}
+			Repetition & $0.002$ & $1$ & $0.002$ & $0.041$ & $0.840$  \\
+			n & $0.050$ & $1$ & $0.050$ & $1.106$ & $0.296$  \\
+			Residuals & $3.464$ & $77$ & $0.045$ & ~ & ~  \\
+			\bottomrule
+			% \addlinespace[1ex]
+			% \multicolumn{6}{p{0.5\linewidth}}{\textit{Note.} Type III Sum of Squares} \\
+		\end{tabular}
+        \vspace{1em}
+        \caption{\textbf{Additional analysis regarding guessing accuracy during the recognition task, related to Figure 2.}\\ 
+        Since objects were repeatedly shown during the recognition task (see STAR Methods), it was theoretically possible to answer recognition trials correctly solely based on previous choices for these objects, while still rating them as guess answers. No participant reported to have done so. Still, we investigated if responses for repeated objects would contribute differently to guessing accuracy than responses for first presentations of the objects (within the recognition task). In addition, we included the number of guessed responses as a covariate, because it varied considerably across participants.
+        The table shows the result of an analysis of covariance (ANCOVA) which shows that it is unlikely that repeated objects (case: repetition) contributed differently to guessed retrieval accuracy, and that number of guessed responses (case: n) was not associated with guessing accuracy across participants.}
+	}
+\end{table}
+
