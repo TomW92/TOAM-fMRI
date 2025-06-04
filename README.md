@@ -1,7 +1,7 @@
 # TOAM - Trajectory of a Memory Trace
 
 ## Contents
-This repository contains code and data files required to reproduce the results of the study entitled "Neural Traces of Forgotten Memories Persist in Humans and are Behaviorally Relevant" by Tom Willems, Konstantinos Zervas, Finn Rabe, Andrea Federspiel, and Katharina Henke. A preprint of the study can be found on [bioRxiv](https://doi.org/10.1101/2023.10.02.560679). The fMRI data are available on OpenNeuro:
+This repository contains code and data files required to reproduce the results of the study entitled "Neural Traces of Forgotten Memories Persist in Humans and are Behaviorally Relevant" by Tom Willems, Konstantinos Zervas, Finn Rabe, Andrea Federspiel, and Katharina Henke. A preprint of the study can be found on [bioRxiv](https://doi.org/10.1101/2025.06.02.656652). The fMRI data are available on OpenNeuro:
 - [small FOV fMRI group](https://doi.org/10.18112/openneuro.ds006265.v1.0.0)
 - [whole-brain fMRI group](https://doi.org/10.18112/openneuro.ds006266.v1.0.0)
 
@@ -40,9 +40,11 @@ Utility functions used in the fMRI analysis can be found in the subfolder `/fMRI
 The supplementary material and all Figures can be found in `/paper/src`.
 
 ## License
-
 Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0)
 https://creativecommons.org/licenses/by/4.0/
+
+## Acknowledgements
+This work was supported by Sitem-Insel Support Funds SISF 2019 to K. Henke and by the SNFS Advanced Grant TMAG-1_209374 to K. Henke. The authors thank Mirco Bristle and Luzius Brogli for their support during data analysis. Calculations were performed on UBELIX (https://www.id.unibe.ch/hpc), the HPC cluster at the University of Bern.
 
 ## Contact
 tom.willems@unibe.ch
