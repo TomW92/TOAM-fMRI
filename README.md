@@ -1,7 +1,7 @@
 # TOAM - Trajectory of a Memory Trace
 
 ## Contents
-This repository contains code and data files required to reproduce the results of the study entitled "Neural Traces of Forgotten Memories Persist in Humans and are Behaviorally Relevant" by Tom Willems, Konstantinos Zervas, Finn Rabe, Andrea Federspiel, and Katharina Henke. A preprint of the study can be found on [bioRxiv](https://doi.org/10.1101/2025.06.02.656652). The fMRI data are available on OpenNeuro:
+This repository contains code and data files required to reproduce the results of the study entitled "Neural Traces of Forgotten Memories Persist in Humans and are Behaviorally Relevant" by Tom Willems, Konstantinos Zervas, Luzius Brogli, Finn Rabe, Andrea Federspiel, and Katharina Henke. A preprint of the study can be found on [bioRxiv](https://doi.org/10.1101/2025.06.02.656652). The fMRI data are available on OpenNeuro:
 - [small FOV fMRI group](https://doi.org/10.18112/openneuro.ds006265.v1.0.0)
 - [whole-brain fMRI group](https://doi.org/10.18112/openneuro.ds006266.v1.0.0)
 
