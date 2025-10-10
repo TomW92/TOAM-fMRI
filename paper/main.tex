@@ -49,6 +49,9 @@
 
 % for supplement
 \renewcommand{\thetable}{S\arabic{table}}
+\makeatletter
+\newcommand\thefontsize[1]{{#1 The current font size is: \f@size pt\par}}
+\makeatother
 
 % Make declarations
 \DeclareSIUnit\Molar{M}
@@ -79,16 +82,15 @@
 %\title{Forgotten memories can be reactivated and influence behaviour unconsciously}
 
 %TC:ignore
-\title{}
-\title{
-  Supplemental Information \\
-  \vspace{1em}
-  \large Neural Traces of Forgotten Memories Persist in Humans and are Behaviorally Relevant}
+\title{Supplementary Material}
+
+
+
 
 
 % Authors - you can use \orcidlink{} and \authfn{} - see contribution note
 
-\author[]{Tom Willems, Konstantinos Zervas, Finn Rabe, Andrea Federspiel, Katharina Henke}
+\author[]{}
 
 
 % Affiliations
@@ -114,6 +116,23 @@
 \begin{document}
 \maketitle
 \fussy
+
+\noindent
+\huge Neural Traces of Forgotten Memories Persist in Humans and are Behaviorally Relevant
+\\
+
+\noindent\Large Tom Willems \textit{et al.}
+\\
+
+\noindent\Large Corresponding author: tom.willems@unibe.ch
+\\
+
+\noindent\textbf{This PDF file includes:}
+\begin{itemize}
+    \item Figs. S1 to S6
+    \item Tables S1 to S15
+\end{itemize}
+
 
 \newpage
 \input{paper/src/supplementary_figures.tex}
