@@ -12,6 +12,7 @@ library(wesanderson)
 #library(factoextra)
 library(BayesFactor)
 
+
 #check OS ----
 if (.Platform$OS.type == 'windows'){
   filesep <- .Platform$file.sep
@@ -69,6 +70,29 @@ behavAnalysis <- function(df_detailed,group,output_dir){
       cols = 5:20,
       names_to=c(".value","retrieval"),
       names_sep = -1)
+  
+  
+  #calculate type 2 d' (d-prime)
+  if (grepl("maxTrials", group, fixed = TRUE)){
+    dprime_df = df_det_long %>% 
+      filter(retrieval > 1 & consc > 1) %>% 
+      na.omit() %>% 
+      group_by(retrieval, consc, id) %>% #including log linear correction: Macmillan & Kaplan, 1985
+      summarise(HR = (sum(Accuracy == TRUE) +0.5) / (n() + 1),
+                FAR = (sum(Accuracy == FALSE) +0.5) / (n() +1)) %>% 
+      mutate ( type2_dprime = round(qnorm(HR) - qnorm(FAR),3)) %>% 
+      summarise(HR = round(mean(HR),3),
+                FAR = round(mean(FAR),3), 
+                M = round(mean(type2_dprime),3), 
+                SD = round(sd(type2_dprime),3)) %>% 
+      mutate(Task= case_when(retrieval=="2" ~ '30-min retrieval', retrieval=="3" ~ '24-hour retrieval', retrieval==4 ~ 'Recognition'),
+             Rating = case_when(consc == 2 ~ 'guess', consc == 3 ~ 'unsure', consc == 4 ~ 'sure')) %>% 
+      ungroup() %>% 
+      select(-c(consc,retrieval)) %>% 
+      relocate(where(is.numeric), .after=last_col())
+    write.csv(dprime_df,file=paste0(output_dir,"Type_2_dprime_",group,".csv"))
+    }
+
   
   #aggregation to count different trial types
   df_aggr2 <- df_detailed %>% filter(!is.na(second.rating) & !is.na(second.retrieval)) %>%
@@ -603,10 +627,8 @@ behavAnalysis <- function(df_detailed,group,output_dir){
   
 }
 
-behavVersions <- c("_corrected.csv","_maxTrials.csv") #  b <- "_withgroup.csv"
-b <- "_withgroup.csv"
 
-
+behavVersions <- c("_corrected.csv","_maxTrials.csv")
 sequences = c("hipp","wb")
 for (behavVersion in behavVersions){
     #load different versions (with more or less data cleanup
@@ -615,7 +637,7 @@ for (behavVersion in behavVersions){
       df_detailed <- rbind(df_hipp, df_wb)
       output_dir <- paste0(basepath, "/behav/")
       write.csv(df_detailed,paste0(output_dir,"df_bothgroups",behavVersion))
-    group <- paste0(sequence,tools::file_path_sans_ext(behavVersion))
+    group <- paste0('all',tools::file_path_sans_ext(behavVersion))
     behavAnalysis(df_detailed,group,output_dir)
   }
 
